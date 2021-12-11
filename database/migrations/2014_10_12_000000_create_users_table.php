@@ -26,10 +26,8 @@ class CreateUsersTable extends Migration
             $table->foreignId('current_team_id')->nullable();
             $table->string('profile_photo_path', 2048)->nullable();
             $table->timestamps();
-            
-
         });
-        DB::statement("ALTER TABLE users add CONSTRAINT chk_roles CHECK (role in ('admin','etudiant','enseignant'))");
+        DB::statement("ALTER TABLE users add CONSTRAINT chk_roles CHECK (role in ('admin','etudiant','enseignant','pre_enseignant'))");
     }
 
     /**

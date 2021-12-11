@@ -1,5 +1,11 @@
 <?php
 
+use App\Http\Controllers\AdminController;
+use App\Http\Livewire\AcceptEnseignant;
+use App\Http\Livewire\AdminRequests;
+use App\Http\Livewire\AdminSalons;
+use App\Http\Livewire\AdminUsers;
+use App\Http\Livewire\Post;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,6 +23,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+
+Route::middleware(['auth:sanctum', 'verified'])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+    
+    Route::get('/post',Post::class)->name('post');
+
+    Route::middleware(['auth', 'admin'])->group(function () {
+        Route::get('/admin/',[AdminController::class,'index'])->name('admin.dashboard');
+        Route::get('/admin/requests',AdminRequests::class)->name('admin.requests');
+        Route::get('admin/users',AdminUsers::class)->name('admin.users');
+        Route::get('admin/salons',AdminSalons::class)->name('admin.salons');
+    });
+});

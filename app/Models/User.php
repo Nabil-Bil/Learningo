@@ -27,6 +27,7 @@ class User extends Authenticatable
         'last_name',
         'email',
         'password',
+        'role'
     ];
 
     /**
@@ -58,4 +59,14 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    protected function defaultProfilePhotoUrl()
+    {
+        return 'https://ui-avatars.com/api/?name=' . urlencode($this->first_name." ".$this->last_name) . '&color=7F9CF5&background=EBF4FF';
+    }
+
+    public function salons()
+    {
+        return $this->hasMany(Salon::class);
+    }
 }
