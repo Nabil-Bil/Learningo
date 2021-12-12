@@ -10,11 +10,6 @@ class AdminUsers extends Component
     public $users;
     public int $editId=0;
 
-    public function mount()
-    {
-        $this->users=User::get();
-    }
-
 
     public function startEdit(int $id)
     {
@@ -34,7 +29,7 @@ class AdminUsers extends Component
     public function render()
     {
 
-        
+        $this->users=User::get()->where('role','!=','admin');
         return view('custom.admin.admin-users');
     }
 }
