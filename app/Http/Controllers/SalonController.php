@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Salon;
+use App\Models\User;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -23,19 +24,23 @@ class SalonController extends Controller
                 'module'=>['required'],
                 'description'=>['required','min:8'],
             ]
-            );
-        $all_photos=Storage::allFiles('public/salon-image');  
+            );  
         $salon=new Salon();
         $salon->name=$request->name;
-        $salon->matiere=$request->module;
         $salon->description=$request->description;
         $salon->user_id=Auth::user()->id;
-        $salon->image_path=Str::after($all_photos[rand(0,count($all_photos)-1)],'public/');
+        $salon->image_path="EEEEE";
         $salon->codeSalon=Str::random(6);
-        
+        $salon->module=$request->module;
         $salon->save();
+     
+        $salon->users()->attach(Auth::user()->id);
 
-        return redirect()->back();
+
+
+        
+
+        return redirect()->route('dashboard');
         
     }
 }

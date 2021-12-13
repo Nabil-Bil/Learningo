@@ -28,9 +28,7 @@ Route::get('/', function () {
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     
     Route::get('/redirects',[Controller::class,'index']);
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    Route::get('/dashboard',[Controller::class,'dashboard'])->name('dashboard');
     
     Route::get('/post',Post::class)->name('post');
     Route::middleware(['auth', 'admin'])->group(function () {
