@@ -31,17 +31,26 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/dashboard',[Controller::class,'dashboard'])->name('dashboard');
     
     Route::get('/post',Post::class)->name('post');
-    Route::middleware(['auth', 'admin'])->group(function () {
+    Route::middleware('admin')->group(function () {
         Route::get('/admin/',[AdminController::class,'index'])->name('admin.dashboard');
         Route::get('/admin/requests',AdminRequests::class)->name('admin.requests');
         Route::get('admin/users',AdminUsers::class)->name('admin.users');
         Route::get('admin/salons',AdminSalons::class)->name('admin.salons');
     });
 
-    Route::middleware(['auth', 'enseignant'])->group(function () {
+    Route::middleware('enseignant')->group(function () {
         Route::get('/salon/create',[SalonController::class,'create'])->name('salon.create');
         Route::post('/salon/create',[SalonController::class,'store'])->name('salon.store');
     });
+    
+   
+    Route::middleware('member')->group(function(){
+
+        Route::get('/salon/{id}',[SalonController::class,'show'])->name('salon.show')->where(['id'=>'[0-9]+']);
+    });
+
+    Route::get('salon/join',[SalonController::class,'join_view'])->name('salon.join_view');
+    Route::post('salon/join',[SalonController::class,'join'])->name('salon.join');
 
     
 });

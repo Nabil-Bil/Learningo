@@ -56,6 +56,13 @@
                     </x-jet-nav-link>
                 </div>
 
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-jet-nav-link href="{{ route('salon.join_view') }}" :active="request()->routeIs('salon.join')">
+                        {{ __('Join Salon') }}
+                    </x-jet-nav-link>
+
+                </div>
+
                 @else
 
                   <!-- Logo -->
@@ -72,6 +79,13 @@
                     <x-jet-nav-link href="{{ route('post') }}" :active="request()->routeIs('post')">
                         {{ __('Post') }}
                     </x-jet-nav-link>
+                </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-jet-nav-link href="{{ route('salon.join_view') }}" :active="request()->routeIs('salon.join')">
+                        {{ __('Join Salon') }}
+                    </x-jet-nav-link>
+
                 </div>
                 @endif
 

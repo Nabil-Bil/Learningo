@@ -4,11 +4,12 @@
             {{ __('Dashboard') }}
         </h2>
     </x-slot>
-    @foreach ($salons as $salon)
-    <div class="py-12" >
-        <a  href="{{ route('dashboard') }}" >
+    <div class="flex flex-wrap">
+        @foreach ($salons as $salon)
+    <div class="py-12" style="width: 500px">
+        <a  href="{{ route('salon.show',$salon->id) }}" >
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
+                <div class="bg-{{ $salon->color_code }} overflow-hidden shadow-xl sm:rounded-lg">
                     <div class="flex p-8 justify-between">
                         <div class="mx-8">
         
@@ -23,7 +24,7 @@
     </div>
    
     @endforeach
+    </div>
     
-
     
 </x-app-layout>

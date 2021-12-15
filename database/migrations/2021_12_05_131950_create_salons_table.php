@@ -20,7 +20,7 @@ class CreateSalonsTable extends Migration
             $table->string('module');
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('color_code');
-            $table->string('codeSalon');
+            $table->string('codeSalon')->unique();
             $table->timestamps();
         });
     }
