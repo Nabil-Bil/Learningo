@@ -9,6 +9,7 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\URL;
 
 class SalonController extends Controller
 {
@@ -80,12 +81,34 @@ class SalonController extends Controller
                 return redirect()->back()->withErrors("You are already member of this salon");
             }
             Salon::find($salon->id)->users()->attach(Auth::user()->id);
-            return redirect()->route('salon.show',$salon->id);
+            return redirect()->route('salon.forum',$salon->id);
         }
     }
 
-    public function show($id)
+    public function forum($id)
     {
+        return view('custom.salon.salon-content.forum',[
+            'id'=>$id
+        ]);
+    }
+
+    public function members($id)
+    {
+        $members=Salon::find($id)->users;
+        $num=count($members);
         
+        $enseignant_id=Salon::find($id)->user_id;
+        
+       return view('custom.salon.salon-content.members',[
+           'id'=>$id,
+           'members'=>$members,
+           'num'=>$num,
+           'enseignant_id'=>$enseignant_id,
+       ]);
+    }
+
+    public function exclude($id,Request $request){
+        Salon::find($id)->users()->detach($request->member_id);
+        return redirect()->back();
     }
 }

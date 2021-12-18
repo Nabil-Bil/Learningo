@@ -24,5 +24,10 @@ class Salon extends Model
     {
       return $this->belongsToMany(User::class)->wherePivot('user_id',Auth::user()->id);
     }
+
+    public function specific_member($id)
+    {
+      return $this->belongsToMany(User::class)->wherePivot('user_id',$id);
+    }
     
 }
