@@ -29,5 +29,10 @@ class Salon extends Model
     {
       return $this->belongsToMany(User::class)->wherePivot('user_id',$id);
     }
+
+    public function posts()
+    {
+      return $this->hasMany(Post::class)->orderBy('created_at','DESC');
+    }
     
 }
