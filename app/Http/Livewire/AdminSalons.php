@@ -16,7 +16,9 @@ class AdminSalons extends Component
     }
     public function delete($id)
     {
-      Salon::find($id)->delete();
+        $salon=Salon::find($id);
+        $salon->delete();
+
       $this->salons=Salon::get();  
     }
     public function render()
