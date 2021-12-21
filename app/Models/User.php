@@ -1,15 +1,15 @@
 <?php
 
 namespace App\Models;
-
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Laravel\Sanctum\HasApiTokens;
+use Laravel\Jetstream\HasProfilePhoto;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
-use Laravel\Jetstream\HasProfilePhoto;
-use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens;
     use HasFactory;
@@ -27,6 +27,7 @@ class User extends Authenticatable
         'last_name',
         'email',
         'password',
+        'role'
     ];
 
     /**
@@ -58,4 +59,19 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    protected function defaultProfilePhotoUrl()
+    {
+        return 'https://ui-avatars.com/api/?name=' . urlencode($this->first_name." ".$this->last_name) . '&color=7F9CF5&background=EBF4FF';
+    }
+
+    public function all_salons()
+    {
+        return $this->hasMany(Salon::class);
+    }
+    
+    public function salons()
+    {
+        return $this->belongsToMany(Salon::class)->withTimestamps();
+    }
 }
