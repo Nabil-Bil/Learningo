@@ -69,7 +69,7 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasMany(Salon::class);
     }
-    
+
     public function salons()
     {
         return $this->belongsToMany(Salon::class)->withTimestamps();
