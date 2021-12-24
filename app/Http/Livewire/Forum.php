@@ -6,12 +6,14 @@ use App\Models\Post;
 use App\Models\Salon;
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
+use Livewire\WithFileUploads;
 
-
-class Forum extends Component
+class Forum extends Component 
 {
+    use WithFileUploads;
 
     public $post;
+    public $files=[];
     public $salon_id;
     public $all_posts;
     protected $listeners = ['reRenderParent'];
@@ -30,6 +32,7 @@ class Forum extends Component
     public function submit()
     {
         $this->validate();
+        dd($this->files);
         $post=new Post();
         $post->content=$this->post;
         $post->salon_id=$this->salon_id;

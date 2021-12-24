@@ -1,6 +1,6 @@
 <div class="py-12 ">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 min-w-7xl">
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-4  border-2 border-gray-600 divide-y">
+            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-4 pb-10 border-2 border-gray-600 divide-y">
                 <div>
                     <div class="flex justify-between items-center px-6">
                         <div class="flex">
@@ -18,6 +18,7 @@
                                 </span>
                             </div>
                         </div>
+                        @if($user->id==Auth::user()->id)
                         <x-jet-dropdown align="right" width="46">
                             <x-slot name="trigger">
                                 <button class="flex border-none outline-none" style="border:none">
@@ -27,7 +28,7 @@
                                 </button>
                             </x-slot>
                             <x-slot name="content">
-                                @if($user->id==Auth::user()->id)
+                                
                                 <x-jet-dropdown-link href="">
                                     {{ __('Update') }}
                                 </x-jet-dropdown-link>
@@ -35,9 +36,10 @@
                                 <x-jet-dropdown-link wire:click='delete' class="cursor-pointer">
                                     {{ __('Delete') }}
                                 </x-jet-dropdown-link>
-                                @endif  
+                                 
                             </x-slot>
                         </x-jet-dropdown>
+                        @endif 
                     </div>
                         <p class="p-10">{{ $post->content }}</p>
                 </div>
@@ -62,14 +64,14 @@
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
                                       </svg>
                                 </button>
-                           </label>
-
-                            
+                           </label> 
                         </div>
-                        
-
-                    </form>  
+                    </form> 
+                    @foreach ($all_comments as $comment)
+                        <livewire:comment :comment='$comment' :wire:key="$comment->id"  />
+                    @endforeach
                 </div>
+               
                    
             </div>
     </div>
