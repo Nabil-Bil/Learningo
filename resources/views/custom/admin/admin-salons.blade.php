@@ -31,15 +31,15 @@
                 </tr>
                 {{-- @if($editId===$user->id)
                 <tr class="bg-white border border-grey-500 md:border-none block md:table-row">
-                    
+
                     <livewire:user-form :user="$user"/>
                 </tr>
                 @endif
-                 --}}
+                --}}
                 @endforeach
-                		
+
             </tbody>
         </table>
     </div>
-    
+
 </div>

@@ -4,9 +4,9 @@
             {{ __('Create Salon') }}
         </h2>
     </x-slot>
-
     <div class="py-20">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <x-jet-validation-errors class="mb-4" />
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg px-12 py-32">
                 <form action="{{ route('salon.store') }}" method="POST" class="flex flex-col justify-around h-80">
                     @csrf

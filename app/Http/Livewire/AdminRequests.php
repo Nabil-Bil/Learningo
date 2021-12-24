@@ -8,21 +8,15 @@ use Livewire\Component;
 class AdminRequests extends Component
 {
     public $datas;
-
-    public function accept($id)
+    protected $listeners = ['reRenderParent'];
+    public function reRenderParent()
     {
-        User::find($id)->update(['role'=>'enseignant']);
-
-    }
-
-    public function refuse($id)
-    {
-        User::find($id)->update(['role'=>'etudiant']);
-
+        $this->mount();
+        $this->render();
     }
     public function render()
     {   
-        $this->datas=User::get()->where('role','pre_enseignant')->toArray();
+        $this->datas=User::get()->where('role','pre_enseignant');
         return view('custom.admin.admin-requests');
     }
 }
