@@ -13,13 +13,16 @@ class Post extends Component
     public $user;
     public $comment;
     public $all_comments;
+    public $all_files;
     protected $listeners = ['reRenderParent2'];
     protected $rules=[
         'comment'=>'required',
+        
     ];
     public function mount(){
         $this->user=User::find($this->post->user_id);
         $this->all_comments=$this->post->comments;
+        $this->all_files=$this->post->files;
     }
 
     public function delete(){

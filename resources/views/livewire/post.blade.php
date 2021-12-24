@@ -1,7 +1,9 @@
-<div class="py-12 ">
+<div class="py-12">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 min-w-7xl">
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-4 pb-10 border-2 border-gray-600 divide-y">
-                <div>
+            <div class="bg-white shadow-xl sm:rounded-lg p-4 pb-10 border-2 border-gray-600 break-words">
+                <div class="divide-y">
+                    <div>
+
                     <div class="flex justify-between items-center px-6">
                         <div class="flex">
                             <img class="h-8 w-8 rounded-full object-cover "  src ="{{ $user->profile_photo_url }}" alt="{{ $user->name}}" />
@@ -42,6 +44,7 @@
                         @endif 
                     </div>
                         <p class="p-10">{{ $post->content }}</p>
+                        
                 </div>
                 <div>
                     @error('add_comment') <span class="error text-xl font-bold text-red-500 mb-5">{{ $message }}</span> @enderror
@@ -66,13 +69,23 @@
                                 </button>
                            </label> 
                         </div>
-                    </form> 
-                    @foreach ($all_comments as $comment)
-                        <livewire:comment :comment='$comment' :wire:key="$comment->id"  />
-                    @endforeach
+                    </form>
                 </div>
-               
-                   
+                @if (!empty($all_comments->first()))
+                <div x-data="{open : false}">
+                    <div class="text-center">
+                        <button @click="open = !open" class="border-none underline font-bold text-xl ">Show All Comments</button>
+                    </div>
+                      <div  x-show="open" class="divide-y">
+                        @foreach ($all_comments as $comment)
+                            <livewire:comment :comment='$comment' :wire:key="$comment->id"/>
+                        @endforeach
+                      </div>
+                </div>
+                @endif
+
+            </div>
+
             </div>
     </div>
 </div>

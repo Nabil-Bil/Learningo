@@ -15,7 +15,8 @@ class CreatePathsTable extends Migration
     {
         Schema::create('paths', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('salon_id')->constrained()->nullable();
+            $table->foreignId('salon_id')->constrained()->onDelete('cascade')->nullable();
+            $table->foreignId('post_id')->constrained()->onDelete('cascade')->nullable();
             $table->string('path');
             $table->string('extension');
             $table->timestamps();

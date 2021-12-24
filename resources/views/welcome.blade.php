@@ -334,7 +334,7 @@
                         <div>
                             <h2 class="text-base font-semibold leading-none text-gray-800">Why should I use your service?</h2>
                         </div>
-                        <button data-menu class="focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 ring-offset-white cursor-pointer">
+                        <button data-menu class="focus:outline-none cursor-pointer">
                             <img class="hidden" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/faq-2-svg1.svg" alt="dropdown">
                             <img class="transform rotate-180" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/faq-2-svg1.svg" alt="dropdown">
                         </button>
@@ -350,7 +350,7 @@
                         <div>
                             <h2 class="text-base font-semibold leading-none text-gray-800">What payment method I can use?</h2>
                         </div>
-                        <button data-menu class="focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 ring-offset-white cursor-pointer">
+                        <button data-menu class="focus:outline-none  cursor-pointer">
                             <img class="hidden" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/faq-2-svg1.svg" alt="dropdown">
                             <img class="transform rotate-180" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/faq-2-svg1.svg" alt="dropdown">
                         </button>
@@ -366,7 +366,7 @@
                         <div>
                             <h2 class="text-base font-semibold leading-none text-gray-800">Is your service safe to use?</h2>
                         </div>
-                        <button data-menu class="focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 ring-offset-white cursor-pointer">
+                        <button data-menu class="focus:outline-none   cursor-pointer">
                             <img class="hidden" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/faq-2-svg1.svg" alt="dropdown">
                             <img class="transform rotate-180" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/faq-2-svg1.svg" alt="dropdown">
                         </button>
@@ -382,7 +382,7 @@
                         <div>
                             <h2 class="text-base font-semibold leading-none text-gray-800">How to recover password?</h2>
                         </div>
-                        <button data-menu class="focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 ring-offset-white cursor-pointer">
+                        <button data-menu class="focus:outline-none cursor-pointer">
                             <img class="hidden" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/faq-2-svg1.svg" alt="dropdown">
                             <img class="transform rotate-180" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/faq-2-svg1.svg" alt="dropdown">
                         </button>
@@ -400,12 +400,12 @@
                     <p class="mx-4 md:mx-0 mb-4 text-base leading-none text-gray-600 mt-4">Our team is just an email away and ready to answer your questions</p>
                 </div>
                 <div role="list" aria-label="Our Team mates" class="flex flex-wrap items-center justify-around mt-2 ">
-                    <div role="listitem" class="focus:outline-none" class="flex flex-col items-center justify-center m-6" >
-<img src="https://i.ibb.co/zS3y67Q/Unsplash-Avatars-0000s-0019-analise-benevides-88w-Kdd-JTwp8-unsplash-1.png" alt="Display avatar of julia john" role="img">                        <p class="text-base font-semibold leading-none text-gray-800 mt-2">ALLOUI Abdelrauf</p>
+                    <div role="listitem"  class="flex flex-col items-center justify-center m-6 focus:outline-none">
+                    <img src="https://i.ibb.co/zS3y67Q/Unsplash-Avatars-0000s-0019-analise-benevides-88w-Kdd-JTwp8-unsplash-1.png" alt="Display avatar of julia john" role="img">                        <p class="text-base font-semibold leading-none text-gray-800 mt-2">ALLOUI Abdelrauf</p>
                         <p class="text-base leading-none text-gray-600 mt-2">Developer</p>
                     </div>
-                    <div role="listitem" class="focus:outline-none" class="flex flex-col items-center justify-center m-6" >
-<img src="https://i.ibb.co/zS3y67Q/Unsplash-Avatars-0000s-0019-analise-benevides-88w-Kdd-JTwp8-unsplash-1.png" alt="Display avatar of julia john" role="img">                        <p class="text-base font-semibold leading-none text-gray-800 mt-2">RADJAI Nabil</p>
+                    <div role="listitem" class="flex flex-col items-center justify-center m-6 focus:outline-none" >
+                    <img src="{{ asset('img/asset.png') }}" alt="Display avatar of RADJAI Nabil" role="img" class="w-12">                        <p class="text-base font-semibold leading-none text-gray-800 mt-2">RADJAI Nabil</p>
                         <p class="text-base leading-none text-gray-600 mt-2">Developer</p>
                     </div>
                 </div>

@@ -1,5 +1,5 @@
 <div class="px-10 py-5">
-    <div class="flex justify-between items-center px-6">
+    <div class="flex justify-between items-center">
                         <div class="flex">
                             <img class="h-8 w-8 rounded-full object-cover "  src ="{{ $user->profile_photo_url }}" alt="{{ $user->name}}" />
                             <div class="flex mx-3 flex-col">
@@ -37,7 +37,6 @@
                             </x-slot>
                         </x-jet-dropdown>
                         @endif
-                        
                     </div>
-        <p class="text-lg font-semibold">{{ $comment->content }}</p>
+                    <p class="text-lg font-semibold px-10 py-4">{{ $comment->content }}</p>
 </div>

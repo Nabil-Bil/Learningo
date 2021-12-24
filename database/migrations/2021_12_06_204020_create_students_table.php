@@ -14,7 +14,7 @@ class CreateStudentsTable extends Migration
     public function up()
     {
         Schema::create('students', function (Blueprint $table) {
-            $table->foreignId('user_id')->constrained()->unique();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade')->unique();
             $table->string('matrincule')->nullable();
             $table->float('assiduity');
             $table->timestamps();

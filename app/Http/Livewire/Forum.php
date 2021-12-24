@@ -2,10 +2,12 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Path;
 use App\Models\Post;
 use App\Models\Salon;
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Livewire\WithFileUploads;
 
 class Forum extends Component 
@@ -17,28 +19,42 @@ class Forum extends Component
     public $salon_id;
     public $all_posts;
     protected $listeners = ['reRenderParent'];
+    protected $rules=[
+        'post'=>'required',
+        'files.*'=>'mimes:pdf,png,jpg,mp4,mkv,docx,doc,pptx'
+    ];
     
+
     public function reRenderParent()
     {
         $this->mount();
         $this->render();
     }
 
-    protected $rules=[
-        'post'=>'required',
-    ];
-
-
     public function submit()
     {
-        $this->validate();
-        dd($this->files);
+        $this->validate(); 
         $post=new Post();
         $post->content=$this->post;
         $post->salon_id=$this->salon_id;
         $post->user_id=Auth::user()->id;
         $post->save();
-        $this->post=null;
+
+        
+        foreach($this->files as $file){
+
+            $file_name=time() . $file->getClientOriginalName();
+            $file->storeAs('/public/files',$file_name);
+             $path=new Path();
+             $path->salon_id=$this->salon_id;
+             $path->post_id=$post->id;
+             $path->path="storage/files/". $file_name;
+            $path->extension=$file->getClientOriginalExtension();
+            $path->save();
+        }
+
+        $this->files=[];
+        $this->post="";
 
     }
 
