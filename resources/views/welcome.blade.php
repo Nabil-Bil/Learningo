@@ -117,8 +117,6 @@
         </g>
     </svg>
     </div>
-    <section class="bg-white border-b py-8">
-       </section>
 
     <section class="bg-gray-100 py-8" id="about">
         <div class="container max-w-5xl mx-auto m-8">
