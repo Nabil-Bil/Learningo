@@ -36,7 +36,7 @@
                     </x-slot>
                     <x-slot name="content">
 
-                        <x-jet-dropdown-link href="">
+                        <x-jet-dropdown-link href="{{ route('private_chat',['id'=>$id,'receiver_id'=>$member->id]) }}">
                             {{ __('Chat') }}
                         </x-jet-dropdown-link>
                         @if ($enseignant_id==Auth::user()->id)
