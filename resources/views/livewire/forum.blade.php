@@ -17,6 +17,7 @@
                             class="bg-blueGray-100 max-h-58 w-full rounded-md  focus:outline-none focus:ring-0 resize-none overflow-hidden font-semibold text-xl p-3"></textarea>
                         @error('files.*') <span class="error text-xl font-bold text-red-500 my-2">{{ $message }}</span>
                         @enderror
+                        
                         <div class="flex justify-between mt-10">
 
                             <div class="flex items-center justify-center">
