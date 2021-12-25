@@ -2,7 +2,7 @@
 
 @section('content')
 
-<section class=" container m-auto  divide-y divide-y-reverse divide-green-600 ">
+<section class=" container m-auto  divide-y divide-y-reverse divide-green-600 my-10">
     <div class="flex justify-between items-center ">
         <h1 class="text-5xl text-green-400">Members</h1>
         <span>{{ $num }} Members</span>

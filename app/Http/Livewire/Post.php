@@ -2,10 +2,11 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\Comment;
 use App\Models\User;
-use Illuminate\Support\Facades\Auth;
+use App\Models\Comment;
 use Livewire\Component;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class Post extends Component
 {
@@ -49,6 +50,11 @@ class Post extends Component
         $this->emit('reRenderParent');
         
 
+    }
+    public function download($file)
+    {
+        return Storage::download($file['path'],$file['file_name']);
+       
     }
     
     public function render()

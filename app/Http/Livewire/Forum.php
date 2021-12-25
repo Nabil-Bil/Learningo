@@ -44,12 +44,12 @@ class Forum extends Component
         foreach($this->files as $file){
 
             $file_name=time() . $file->getClientOriginalName();
-            $file->storeAs('/public/files',$file_name);
+            $file->storeAs('/files',$file_name);
              $path=new Path();
              $path->salon_id=$this->salon_id;
              $path->post_id=$post->id;
-             $path->path="storage/files/". $file_name;
-            $path->extension=$file->getClientOriginalExtension();
+             $path->path="/files/". $file_name;
+            $path->file_name=$file->getClientOriginalName();
             $path->save();
         }
 

@@ -18,7 +18,7 @@ class CreatePathsTable extends Migration
             $table->foreignId('salon_id')->constrained()->onDelete('cascade')->nullable();
             $table->foreignId('post_id')->constrained()->onDelete('cascade')->nullable();
             $table->string('path');
-            $table->string('extension');
+            $table->string('file_name');
             $table->timestamps();
         });
     }
