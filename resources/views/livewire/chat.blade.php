@@ -55,7 +55,11 @@
         </div>
         <div>
             <button id="self"
+<<<<<<< HEAD
                 class="flex items-center justify-center h-10 w-10 ml-2 rounded-full bg-gray-200 hover:bg-gray-300 text-indigo-800  focus:outline-none">
+=======
+                class="flex items-center justify-center h-10 w-10 ml-2 rounded-full bg-gray-200 hover:bg-gray-300 text-indigo-800 text-white focus:outline-none">
+>>>>>>> b140a23a0b8b7dc1a5d53f1a6918acc8f86a32a7
                 <svg class="w-5 h-5 transform rotate-90 -mr-px" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
