@@ -17,6 +17,7 @@ class Forum extends Component
     public $post;
     public $files=[];
     public $salon_id;
+    public $salon;
     public $all_posts;
     protected $listeners = ['reRenderParent'];
     protected $rules=[
@@ -31,6 +32,12 @@ class Forum extends Component
         $this->render();
     }
 
+    public function mount()
+    {
+        $this->all_posts=Salon::find($this->salon_id)->posts;
+        $this->salon=Salon::find($this->salon_id);
+        
+    }
     public function submit()
     {
         $this->validate(); 
@@ -60,7 +67,7 @@ class Forum extends Component
 
     public function render()
     {
-        $this->all_posts=Salon::find($this->salon_id)->posts;
+        
         return view('livewire.forum');
     }
 }

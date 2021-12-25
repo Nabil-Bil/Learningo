@@ -111,4 +111,12 @@ class SalonController extends Controller
         Salon::find($id)->users()->detach($request->member_id);
         return redirect()->back();
     }
+
+    public function chat($id,$receiver_id)
+    {
+        return view('custom.salon.salon-content.chat',[
+            'id'=>$id,
+            'receiver_id'=>$receiver_id
+        ]);
+    }
 }

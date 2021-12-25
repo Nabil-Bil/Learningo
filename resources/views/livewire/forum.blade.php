@@ -1,4 +1,8 @@
 <div class="container m-auto">
+    <div class="bg-{{ $salon->color_code }} w-max p-4 mt-2 rounded-lg text-center">
+        <span class="font-semibold text-lg">Code Salon : </span><br>
+        <span class="font-bold text-xl">{{ $salon->codeSalon }}</span>
+    </div>
     <div class="mx-10">
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
