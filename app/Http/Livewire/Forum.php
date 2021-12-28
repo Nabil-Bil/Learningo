@@ -19,14 +19,14 @@ class Forum extends Component
     public $salon_id;
     public $salon;
     public $all_posts;
-    protected $listeners = ['reRenderParent'];
+    protected $listeners = ['reRenderParent'=>'reRender'];
     protected $rules=[
         'post'=>'required',
         'files.*'=>'mimes:pdf,png,jpg,mp4,mkv,docx,doc,pptx'
     ];
     
 
-    public function reRenderParent()
+    public function reRender()
     {
         $this->mount();
         $this->render();
@@ -62,12 +62,12 @@ class Forum extends Component
 
         $this->files=[];
         $this->post="";
+        $this->mount();
 
     }
 
     public function render()
     {
-        
         return view('livewire.forum');
     }
 }

@@ -96,7 +96,7 @@
                 </div>
                 <div x-show="open" class="divide-y">
                     @foreach ($all_comments as $comment)
-                    <livewire:comment :comment='$comment' :wire:key="$comment->id" />
+                        <livewire:comment :comment='$comment' :wire:key="$comment->id" />
                     @endforeach
                 </div>
             </div>

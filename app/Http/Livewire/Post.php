@@ -47,9 +47,9 @@ class Post extends Component
         $comment->post_id=$this->post->id;
         $comment->save();
         $this->comment=null;
-        $this->emit('reRenderParent');
+        $this->mount();
+        $this->render();
         
-
     }
     public function download($file)
     {

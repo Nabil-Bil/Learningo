@@ -49,9 +49,9 @@
                 </div>
                 <div>
                     @if(!empty($all_posts->first()))
-                    @foreach ($all_posts as $post )
-                    <livewire:post :post='$post' :wire:key="$post->id" />
-                    @endforeach
+                        @foreach ($all_posts as $post )
+                            <livewire:post :post='$post' :wire:key="$post->id" />
+                        @endforeach
                     @endif
                 </div>
             </div>

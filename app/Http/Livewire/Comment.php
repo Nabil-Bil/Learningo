@@ -16,13 +16,11 @@ class Comment extends Component
 
     public function delete(){
         $this->comment->delete();
-        $this->emit('reRenderParent');
-        
+        $this->emit('reRenderParent2');
     }
-
+    
     public function render()
     {
-
         return view('livewire.comment');
     }
 }
