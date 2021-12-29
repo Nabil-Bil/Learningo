@@ -35,7 +35,7 @@
                             </x-slot>
                             <x-slot name="content">
 
-                                <x-jet-dropdown-link href="">
+                                <x-jet-dropdown-link href="{{ route('post.index',['id'=>$salon_id,'post_id'=>$post->id]) }}">
                                     {{ __('Update') }}
                                 </x-jet-dropdown-link>
 
@@ -96,7 +96,7 @@
                 </div>
                 <div x-show="open" class="divide-y">
                     @foreach ($all_comments as $comment)
-                        <livewire:comment :comment='$comment' :wire:key="$comment->id" />
+                        <livewire:comment :comment='$comment' :wire:key="$comment->id" :salon_id="$salon_id"/>
                     @endforeach
                 </div>
             </div>

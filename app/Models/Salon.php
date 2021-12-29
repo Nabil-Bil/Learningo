@@ -34,5 +34,10 @@ class Salon extends Model
     {
       return $this->hasMany(Post::class)->orderBy('created_at','DESC');
     }
+
+    public function comments()
+    {
+      return $this->hasManyThrough(Post::class,Comment::class);
+    }
     
 }

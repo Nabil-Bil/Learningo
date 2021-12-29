@@ -26,7 +26,7 @@
                             </x-slot>
                             <x-slot name="content">
                                 
-                                <x-jet-dropdown-link href="">
+                                <x-jet-dropdown-link href="{{ route('comment.index',['id'=>$salon_id,'comment_id'=>$comment->id]) }}">
                                     {{ __('Update') }}
                                 </x-jet-dropdown-link>
     

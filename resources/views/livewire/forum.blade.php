@@ -50,7 +50,7 @@
                 <div>
                     @if(!empty($all_posts->first()))
                         @foreach ($all_posts as $post )
-                            <livewire:post :post='$post' :wire:key="$post->id" />
+                            <livewire:post :post='$post' :wire:key="$post->id" :salon_id="$salon_id" />
                         @endforeach
                     @endif
                 </div>

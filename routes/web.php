@@ -1,18 +1,15 @@
 <?php
 
-use App\Events\MessageNotification;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Controller;
-use App\Http\Controllers\PostController;
 use App\Http\Controllers\SalonController;
-use App\Http\Livewire\AcceptEnseignant;
 use App\Http\Livewire\AdminRequests;
 use App\Http\Livewire\AdminSalons;
 use App\Http\Livewire\AdminUsers;
-use App\Http\Livewire\Chat;
 use App\Http\Livewire\Post;
-use App\Models\Message;
-use Illuminate\Support\Facades\Broadcast;
+use App\Models\Comment;
+use App\Models\Post as ModelsPost;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -55,6 +52,41 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         Route::post('/exclude', [SalonController::class, 'exclude'])->name('exclude');
         Route::post('/delete', [SalonController::class, 'delete'])->name('salon.delete');
         Route::get('/private_chat/{receiver_id}',[SalonController::class,'chat'])->name('private_chat')->where(['receiver_id' => '[0-9]+']);
+
+        Route::prefix('/post/{post_id}')->middleware('post')->group(function(){
+            Route::get('',function($id,$post_id){
+                $post=ModelsPost::find($post_id);
+                return view('custom.salon.post',[
+                    'id'=>$id,
+                    'post'=>$post
+                ]);
+            })->name('post.index');
+
+            Route::post('',function($id,$post_id,Request $request){
+                $post=ModelsPost::find($post_id);
+                $post->content = $request->post;
+                $post->save();
+                return redirect()->route('salon.forum',$id);
+            })->name('post.edit');
+        });
+
+        Route::prefix('/comment/{comment_id}')->middleware('comment')->group(function(){
+            Route::get('',function($id,$comment_id){
+                $comment=Comment::find($comment_id);
+                return view('custom.salon.comment',[
+                    'id'=>$id,
+                    'comment'=>$comment
+                ]);
+            })->name('comment.index');
+
+            Route::post('',function($id,$comment_id,Request $request){
+                $comment=Comment::find($comment_id);
+                $comment->content = $request->comment;
+                $comment->save();
+                return redirect()->route('salon.forum',$id);
+            })->name('comment.edit');
+        });
+       
     });
     Route::prefix('salon/join')->group(function () {
         Route::get('', [SalonController::class, 'join_view'])->name('salon.join_view');

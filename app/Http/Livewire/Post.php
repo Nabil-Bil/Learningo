@@ -15,6 +15,7 @@ class Post extends Component
     public $comment;
     public $all_comments;
     public $all_files;
+    public $salon_id;
     protected $listeners = ['reRenderParent2'];
     protected $rules=[
         'comment'=>'required',
