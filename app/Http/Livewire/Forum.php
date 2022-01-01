@@ -22,7 +22,7 @@ class Forum extends Component
     protected $listeners = ['reRenderParent'=>'reRender'];
     protected $rules=[
         'post'=>'required',
-        'files.*'=>'mimes:pdf,png,jpg,mp4,mkv,docx,doc,pptx'
+        'files.*'=>['mimes:pdf,png,jpg,mp4,mkv,docx,doc,pptx','max:1000000'],
     ];
     
 
@@ -63,6 +63,7 @@ class Forum extends Component
         $this->files=[];
         $this->post="";
         $this->mount();
+        $this->render();
 
     }
 

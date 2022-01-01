@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        
         DB::table('users')->insert([
             'first_name'=>'admin',
             'last_name'=>'admin',
@@ -28,21 +29,31 @@ class DatabaseSeeder extends Seeder
             'updated_at'=>now(),
         ]);
 
-        // DB::table('users')->insert([
-        //     'first_name'=>'RADJAI',
-        //     'last_name'=>'Nabil',
-        //     'email'=>'n.radjai@outlook.fr',
-        //     'email_verified_at'=>now(),
-        //     'password'=>Hash::make('radjai2001'),
-        //     'role'=>'etudiant',
-        //     'created_at'=>now(),
-        //     'updated_at'=>now(),
-        // ]);
-        // $salons=Salon::factory(4)->create();
-        // foreach($salons as $salon){
-        //     $salon->users()->attach(12);
-        //     $salon->users()->attach(11);
-        // }
+        DB::table('users')->insert([
+            'first_name'=>'RADJAI',
+            'last_name'=>'Nabil',
+            'email'=>'n.radjai@outlook.com',
+            'email_verified_at'=>now(),
+            'password'=>Hash::make('radjai2001'),
+            'role'=>'etudiant',
+            'created_at'=>now(),
+            'updated_at'=>now(),
+        ]);
+
+        DB::table('users')->insert([
+            'first_name'=>'RADJAI',
+            'last_name'=>'Nabil',
+            'email'=>'n.radjai@outlook.fr',
+            'email_verified_at'=>now(),
+            'password'=>Hash::make('radjai2001'),
+            'role'=>'etudiant',
+            'created_at'=>now(),
+            'updated_at'=>now(),
+        ]);
+        $salons=Salon::factory(4)->create();
+        foreach($salons as $salon){
+            $salon->users()->attach(2);
+        }
 
 
     }

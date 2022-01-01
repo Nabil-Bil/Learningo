@@ -401,7 +401,7 @@
                 </div>
                 <div role="list" aria-label="Our Team mates" class="flex flex-wrap items-center justify-around mt-2 ">
                     <div role="listitem"  class="flex flex-col items-center justify-center m-6 focus:outline-none">
-                    <img src="https://i.ibb.co/zS3y67Q/Unsplash-Avatars-0000s-0019-analise-benevides-88w-Kdd-JTwp8-unsplash-1.png" alt="Display avatar of julia john" role="img">                        <p class="text-base font-semibold leading-none text-gray-800 mt-2">ALLOUI Abdelrauf</p>
+                    <img src="{{ asset('img/ALLOUI AbdelRaouf.jpg') }}" alt="Display avatar of ALLOUI Abdelraouf" role="img" class="w-12 rounded-full">                        <p class="text-base font-semibold leading-none text-gray-800 mt-2">ALLOUI Abdelrauf</p>
                         <p class="text-base leading-none text-gray-600 mt-2">Developer</p>
                     </div>
                     <div role="listitem" class="flex flex-col items-center justify-center m-6 focus:outline-none" >

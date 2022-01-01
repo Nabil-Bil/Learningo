@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use App\Models\Salon;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class AdminController extends Controller
 {
@@ -17,70 +20,52 @@ class AdminController extends Controller
         return view('custom.admin.admin-dashboard');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    
-    public function create()
-    {
-        //
+    public function editUser($user_id){
+
+        $user=User::findOrFail($user_id);
+        return view('custom.admin.admin-update-user',[
+            'user'=>$user
+        ]);
+
+    }
+    public function editSalon($salon_id){
+        $salon=Salon::findOrFail($salon_id);
+        return view('custom.admin.admin-update-salon',[
+            'salon'=>$salon
+        ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    public function updateUser($user_id,Request $request)
     {
-        //
-    }
+        $request->validate([
+            'first_name'=>'required',
+            'last_name'=>'required',
+            'email'=>['required','email'],
+            'role'=>['required',Rule::in(['etudiant','enseignant','pre_enseignant'])],
+        ]);
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
+        User::find($user_id)->update([
+            'first_name'=>$request->first_name,
+            'last_name'=>$request->last_name,
+            'email'=>$request->email,
+            'role'=>$request->role,
+        ]);
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
+        return redirect()->route('admin.users');
+       
     }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+    public function updateSalon($salon_id,Request $request)
     {
-        //
+       $request->validate([
+           'name'=>'required',
+           'description'=>'required',
+       ]);
+       Salon::find($salon_id)->update([
+           'name'=>$request->name,
+           'description'=>$request->description
+       ]);
+
+       return redirect()->route('admin.salons');
     }
 }

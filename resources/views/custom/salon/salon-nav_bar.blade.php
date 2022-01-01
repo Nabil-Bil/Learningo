@@ -111,9 +111,12 @@
         <!-- Responsive Navigation Menu -->
         <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
             <div class="pt-2 pb-3 space-y-1">
-                <x-jet-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                    {{ __('Dashboard') }}
-                </x-jet-responsive-nav-link>
+                <x-jet-nav-link href="{{ route('salon.forum',$id) }}" :active="request()->routeIs('salon.forum')">
+                    {{ __('Forum') }}
+                </x-jet-nav-link>
+                <x-jet-nav-link href="{{ route('salon.members',$id) }}" :active="request()->routeIs('salon.members')">
+                    {{ __('Members') }}
+                </x-jet-nav-link>
             </div>
     
             <!-- Responsive Settings Options -->

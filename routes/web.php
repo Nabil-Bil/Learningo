@@ -36,8 +36,14 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::prefix('/admin')->middleware('admin')->group(function () {
         Route::get('/', [AdminController::class, 'index'])->name('admin.dashboard');
         Route::get('/requests', AdminRequests::class)->name('admin.requests');
+
         Route::get('/users', AdminUsers::class)->name('admin.users');
+        Route::get('/users/edit/{user_id}',[AdminController::class,'editUser'])->name('admin.users.edit');
+        Route::post('/users/edit/{user_id}', [AdminController::class,'updateUser'])->name('admin.users.update');
+
         Route::get('/salons', AdminSalons::class)->name('admin.salons');
+        Route::get('/salons/edit/{salon_id}', [AdminController::class,'editSalon'])->name('admin.salon.edit');
+        Route::post('/salons/edit/{salon_id}', [AdminController::class,'updateSalon'])->name('admin.salon.update');
     });
 
 

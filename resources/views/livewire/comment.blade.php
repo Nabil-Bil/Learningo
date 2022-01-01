@@ -30,7 +30,7 @@
                                     {{ __('Update') }}
                                 </x-jet-dropdown-link>
     
-                                <x-jet-dropdown-link wire:click='delete' class="cursor-pointer">
+                                <x-jet-dropdown-link wire:click='delete' class="cursor-pointer bg-red-400 hover:bg-red-500">
                                     {{ __('Delete') }}
                                 </x-jet-dropdown-link>
                                 

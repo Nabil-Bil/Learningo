@@ -13,11 +13,11 @@
                         <textarea
                             x-data="{ resize: () => { $el.style.height = '150px'; $el.style.height = $el.scrollHeight + 'px' }}"
                             x-init="resize()" @input="resize()" wire:model.defer="post"
-                            x-on:keydown.enter="if (!$event.shiftKey) $wire.post()" placeholder="Send Message..."
-                            class="bg-blueGray-100 max-h-58 w-full rounded-md  focus:outline-none focus:ring-0 resize-none overflow-hidden font-semibold text-xl p-3"></textarea>
+                            placeholder="Send Message..."
+                            class="bg-blueGray-100 max-h-58 w-full rounded-md  focus:outline-none focus:ring-0 resize-none overflow-hidden font-semibold text-xl p-3" style="height: 150px;"></textarea>
                         @error('files.*') <span class="error text-xl font-bold text-red-500 my-2">{{ $message }}</span>
                         @enderror
-                        
+
                         <div class="flex justify-between mt-10">
 
                             <div class="flex items-center justify-center">
@@ -34,6 +34,7 @@
                                         <input type='file' class="hidden" multiple wire:model="files"
                                             accept=".pdf,.png,.jpg,.mp4,.mkv,.docx,.doc,.pptx" />
                                     </label>
+                                    <div wire:loading wire:target="files" class="mx-5 text-lg font-semibold">Uploading...</div>
                                     @if (!empty($files))
                                     <p class="mx-5 text-lg font-semibold">You will upload {{ count($files) }} files</p>
                                     @endif
@@ -49,9 +50,9 @@
                 </div>
                 <div>
                     @if(!empty($all_posts->first()))
-                        @foreach ($all_posts as $post )
-                            <livewire:post :post='$post' :wire:key="$post->id" :salon_id="$salon_id" />
-                        @endforeach
+                    @foreach ($all_posts as $post )
+                    <livewire:post :post='$post' :wire:key="$post->id" :salon_id="$salon_id" />
+                    @endforeach
                     @endif
                 </div>
             </div>

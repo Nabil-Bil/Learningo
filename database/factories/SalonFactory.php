@@ -26,7 +26,7 @@ class SalonFactory extends Factory
             'name'=>$this->faker->sentence(6),
             'description'=>$this->faker->sentences(2,true),
             'module'=>$this->faker->sentence(3),
-            'user_id'=>12,
+            'user_id'=>2,
             'color_code'=>$this->get_color(),
             'codeSalon'=>Str::random(6),
         ];

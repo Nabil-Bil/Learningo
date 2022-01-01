@@ -25,17 +25,10 @@
                     <td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">Mobile</span>{{  $user->role}}</td>
                     <td class="p-2 md:border md:border-grey-500 text-left block md:table-cell">
                         <span class="inline-block w-1/3 md:hidden font-bold">Actions</span>
-                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 border border-blue-500 rounded " wire:click="startEdit({{ $user->id }})">Edit</button>
+                        <a class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 border border-blue-500 rounded cursor-pointer" href="{{ route('admin.users.edit',['user_id'=>$user->id]) }}" >Edit</a>
                         <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 border border-red-500 rounded" wire:click='delete({{ $user->id }})'>Delete</button>
                     </td>
                 </tr>
-                {{-- @if($editId===$user->id)
-                <tr class="bg-white border border-grey-500 md:border-none block md:table-row">
-                    
-                    <livewire:user-form :user="$user"/>
-                </tr>
-                @endif
-                 --}}
                 @endforeach
                 		
             </tbody>
