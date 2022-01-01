@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
             'last_name'=>'admin',
             'email'=>'admin@admin.com',
             'email_verified_at'=>now(),
-            'password'=>Hash::make('j#Epx!vUxbm!9Y$T'),
+            'password'=>Hash::make('admin@admin.com'),
             'role'=>'admin',
             'created_at'=>now(),
             'updated_at'=>now(),

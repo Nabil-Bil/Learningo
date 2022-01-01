@@ -23,9 +23,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [Controller::class,'welcome'])->name('welcome');
+Route::get('/contact',[Controller::class,'contact'])->name('contact');
+Route::post('/contact',[Controller::class,'contact_send'])->name('contact.send');
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
