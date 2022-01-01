@@ -53,6 +53,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     });
 
     Route::prefix('/salon/{id}')->where(['id' => '[0-9]+'])->middleware('member')->group(function () {
+        Route::get('/room',[SalonController::class,'room'])->name('meet');
         Route::get('/forum', [SalonController::class, 'forum'])->name('salon.forum');
         Route::get('/members', [SalonController::class, 'members'])->name('salon.members');
         Route::post('/exclude', [SalonController::class, 'exclude'])->name('exclude');

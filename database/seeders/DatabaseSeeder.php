@@ -35,7 +35,7 @@ class DatabaseSeeder extends Seeder
             'email'=>'n.radjai@outlook.com',
             'email_verified_at'=>now(),
             'password'=>Hash::make('radjai2001'),
-            'role'=>'etudiant',
+            'role'=>'enseignant',
             'created_at'=>now(),
             'updated_at'=>now(),
         ]);
@@ -50,10 +50,10 @@ class DatabaseSeeder extends Seeder
             'created_at'=>now(),
             'updated_at'=>now(),
         ]);
-        $salons=Salon::factory(4)->create();
-        foreach($salons as $salon){
-            $salon->users()->attach(2);
-        }
+        // $salons=Salon::factory(4)->create();
+        // foreach($salons as $salon){
+        //     $salon->users()->attach(2);
+        // }
 
 
     }

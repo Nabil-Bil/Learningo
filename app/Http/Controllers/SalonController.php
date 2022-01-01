@@ -8,11 +8,13 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\URL;
 
 class SalonController extends Controller
 {
+    private $api_key="31a831b1fe70f74642933f69ac14bb5a82d545d7419ef120b400a03f3aea17ca";
     private $colors=['red','indigo','blue','gray','yellow','green','purple','pink'];
     private $opacity=['100','200','300','400'];
 
@@ -33,9 +35,9 @@ class SalonController extends Controller
     {
         $request->validate(
             [
-                'name'=>['required','min:6'],
+                'name'=>['required',],
                 'module'=>['required'],
-                'description'=>['required','min:8'],
+                'description'=>['required'],
             ]
             );  
         
@@ -48,7 +50,11 @@ class SalonController extends Controller
         do{
             $salon->codeSalon=$this->generate_code();
         }while(!empty(Salon::where('codeSalon',$salon->codeSalon)->get()->first()));
-        
+        $response=Http::withToken($this->api_key)
+        ->post('https://api.daily.co/v1/rooms/');
+        $response=json_decode($response,true);
+
+        $salon->meetUrl=$response['url'];
         $salon->module=$request->module;
         
         $salon->save();
@@ -117,6 +123,14 @@ class SalonController extends Controller
         return view('custom.salon.salon-content.chat',[
             'id'=>$id,
             'receiver_id'=>$receiver_id
+        ]);
+    }
+
+    public function room($id)
+    {
+        $url=Salon::find($id)->meetUrl;
+        return view('custom.salon.salon-content.room',[
+            'url'=>$url
         ]);
     }
 }

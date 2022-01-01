@@ -21,6 +21,7 @@ class CreateSalonsTable extends Migration
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('color_code');
             $table->string('codeSalon')->unique();
+            $table->string('meetUrl')->unique();
             $table->timestamps();
         });
     }

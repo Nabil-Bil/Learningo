@@ -36,6 +36,11 @@
                             {{ __('Members') }}
                         </x-jet-nav-link>
                     </div>
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-jet-nav-link href="{{ route('meet',$id) }}" :active="request()->routeIs('meet')">
+                            {{ __('Join Meet') }}
+                        </x-jet-nav-link>
+                    </div>
     
                 </div>
     
@@ -116,6 +121,9 @@
                 </x-jet-nav-link>
                 <x-jet-nav-link href="{{ route('salon.members',$id) }}" :active="request()->routeIs('salon.members')">
                     {{ __('Members') }}
+                </x-jet-nav-link>
+                <x-jet-nav-link href="{{ route('meet',$id) }}" :active="request()->routeIs('meet')">
+                    {{ __('Join Meet') }}
                 </x-jet-nav-link>
             </div>
     

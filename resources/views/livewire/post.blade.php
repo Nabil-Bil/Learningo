@@ -35,11 +35,13 @@
                             </x-slot>
                             <x-slot name="content">
 
-                                <x-jet-dropdown-link href="{{ route('post.index',['id'=>$salon_id,'post_id'=>$post->id]) }}">
+                                <x-jet-dropdown-link
+                                    href="{{ route('post.index',['id'=>$salon_id,'post_id'=>$post->id]) }}">
                                     {{ __('Update') }}
                                 </x-jet-dropdown-link>
 
-                                <x-jet-dropdown-link wire:click='delete' class="cursor-pointer bg-red-400 hover:bg-red-500">
+                                <x-jet-dropdown-link wire:click='delete'
+                                    class="cursor-pointer bg-red-400 hover:bg-red-500">
                                     {{ __('Delete') }}
                                 </x-jet-dropdown-link>
 
@@ -49,7 +51,8 @@
                     </div>
                     <p class="p-10">{{ $post->content }}</p>
                     @foreach ($all_files as $file )
-                    <div class="flex p-4 border m-2 items-center cursor-pointer bg-gray-100" wire:click="download({{ $file }})">
+                    <div class="flex p-4 border m-2 items-center cursor-pointer bg-gray-100"
+                        wire:click="download({{ $file }})">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24"
                             stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -74,8 +77,9 @@
                             <textarea
                                 x-data="{ resize: () => { $el.style.height = '50px'; $el.style.height = $el.scrollHeight + 'px' } }"
                                 x-init="resize()" @input="resize()" wire:model.defer="comment"
-                             placeholder="Send Message..."
-                                class="bg-blueGray-100 max-h-58 w-full rounded-md focus:outline-none focus:ring-0 resize-none overflow-hidden font-semibold text-xl p-3 pr-14" style="height: 50px"></textarea>
+                                placeholder="Send Message..."
+                                class="bg-blueGray-100 max-h-58 w-full rounded-md focus:outline-none focus:ring-0 resize-none overflow-hidden font-semibold text-xl p-3 pr-14"
+                                style="height: 50px"></textarea>
                             <button type="submit"
                                 class=" absolute top-1/2 transform -translate-y-1/2 right-3 pr-2 rotate-90">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
@@ -96,8 +100,8 @@
                 </div>
                 <div x-show="open" class="divide-y">
                     @foreach ($all_comments as $comment)
-                        <livewire:comment :comment='$comment' :wire:key="$comment->id" :salon_id="$salon_id"/>
-                    @endforeachqsd
+                    <livewire:comment :comment='$comment' :wire:key="$comment->id" :salon_id="$salon_id" />
+                    @endforeach
                 </div>
             </div>
             @endif

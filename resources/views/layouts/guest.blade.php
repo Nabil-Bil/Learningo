@@ -17,6 +17,7 @@
 
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
+        <script crossorigin src="https://unpkg.com/@daily-co/daily-js"></script>
     </head>
     <body>
         <div class="font-sans text-gray-900 antialiased">

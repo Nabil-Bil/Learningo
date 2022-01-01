@@ -12,11 +12,11 @@
                     @csrf
                     <div class="block ">
                         <x-jet-label for="name" class="text-xl font-extrabold" value="{{ __('Name') }}" />
-                        <x-jet-input id="name" class="block mt-1 w-full border-2 border-gray-400 p-2 text-xl font-bold" type="text" name="name" required autofocus />
+                        <x-jet-input id="name" class="block mt-1 w-full border-2 border-gray-400 p-2 text-xl font-bold" type="text" name="name" required autofocus autocomplete="off" />
                     </div>
                     <div class="block ">
                         <x-jet-label for="module" class="text-xl font-extrabold" value="{{ __('module') }}" />
-                        <x-jet-input id="module" class="block mt-1 w-full border-2 border-gray-400 p-2 text-xl font-bold" type="text" name="module" required autofocus />
+                        <x-jet-input id="module" class="block mt-1 w-full border-2 border-gray-400 p-2 text-xl font-bold" type="text" name="module" required autofocus autocomplete="off"/>
                     </div>
                     <div class="mt-10">
                         <x-jet-label for="description" class="text-xl font-extrabold mb-1" value="{{ __('Description') }}" />
