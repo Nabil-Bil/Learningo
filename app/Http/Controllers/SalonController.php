@@ -50,8 +50,19 @@ class SalonController extends Controller
         do{
             $salon->codeSalon=$this->generate_code();
         }while(!empty(Salon::where('codeSalon',$salon->codeSalon)->get()->first()));
-        $response=Http::withToken($this->api_key)
-        ->post('https://api.daily.co/v1/rooms/');
+
+        $response=Http::
+        withToken($this->api_key)
+        ->post('https://api.daily.co/v1/rooms/',[
+         'name'=>$salon->codeSalon,
+         'properties'=>[
+            'enable_network_ui'=>true,
+            'enable_chat'=>true,
+            'start_video_off'=>true,
+            'start_audio_off'=>true,
+            'lang'=>'fr'
+         ]
+      ]);
         $response=json_decode($response,true);
 
         $salon->meetUrl=$response['url'];

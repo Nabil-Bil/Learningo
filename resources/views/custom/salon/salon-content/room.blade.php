@@ -2,6 +2,8 @@
     <script>
         callFrame = window.DailyIframe.createFrame({
         showLeaveButton: true,
+        showFullscreenButton: true,
+        subscribeToTracksAutomatically:true,
         iframeStyle: {
         position: 'fixed',
         width: '100%',
@@ -21,6 +23,7 @@
     },
   },
         })
+
         callFrame.join({ url: '{{ $url }}'})
 
     </script>
