@@ -59,6 +59,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         Route::post('/exclude', [SalonController::class, 'exclude'])->name('exclude');
         Route::post('/delete', [SalonController::class, 'delete'])->name('salon.delete');
         Route::get('/private_chat/{receiver_id}',[SalonController::class,'chat'])->name('private_chat')->where(['receiver_id' => '[0-9]+']);
+        Route::post('/exit',[SalonController::class,'exit'])->name('salon.exit');
 
         Route::prefix('/post/{post_id}')->middleware('post')->group(function(){
             Route::get('',function($id,$post_id){

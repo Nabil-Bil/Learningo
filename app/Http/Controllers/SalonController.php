@@ -2,15 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Salon;
 use App\Models\User;
-use Illuminate\Support\Arr;
+use App\Models\Salon;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Events\MessageNotification;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\URL;
+
 
 class SalonController extends Controller
 {
@@ -125,6 +124,11 @@ class SalonController extends Controller
     }
 
     public function exclude($id,Request $request){
+        $user=User::find($request->member_id);
+        $sender_messages= $user->sender_messages;
+        $receiver_messages= $user->receiver_messages;
+        $sender_messages->each->delete();
+        $receiver_messages->each->delete();
         Salon::find($id)->users()->detach($request->member_id);
         return redirect()->back();
     }
@@ -143,5 +147,35 @@ class SalonController extends Controller
         return view('custom.salon.salon-content.room',[
             'url'=>$url
         ]);
+    }
+    public function exit($id)
+    {
+        $salon=Salon::find($id)->first();
+        $sender_messages= Auth::user()->sender_messages;
+        $receiver_messages=  Auth::user()->receiver_messages;
+        $sender_messages->each->delete();
+        $receiver_messages->each->delete();
+        $salon->member()->detach();
+        if($salon->user_id==Auth::user()->id){
+            
+            $salon->update([
+                'user_id'=>$salon->users()->first()->id
+            ]);
+        }
+        
+
+        return redirect()->route('dashboard');
+        
+    }
+
+    public function delete($id)
+    {
+        $salon=Salon::find($id);
+        Http::
+        withToken($this->api_key)
+        ->delete('https://api.daily.co/v1/rooms/'.$salon->codeSalon
+      );
+        $salon->delete();
+        return redirect()->route('dashboard');
     }
 }

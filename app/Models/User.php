@@ -74,4 +74,13 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->belongsToMany(Salon::class)->withTimestamps();
     }
+
+    public function sender_messages()
+    {
+        return $this->hasMany(Message::class,'sender_id');
+    }
+    public function receiver_messages()
+    {
+        return $this->hasMany(Message::class,'receiver_id');
+    }
 }
