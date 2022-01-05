@@ -69,8 +69,14 @@
 
                 @if (Route::has('login'))
                 @auth
-                <button onclick="window.location.href='{{ url('/dashboard') }}';" id="navAction"
+                    @if(Auth::user()->role=='admin')
+                <button onclick="window.location.href='{{ url('/admin') }}';" id="navAction"
                     class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full mt-4 lg:mt-0 py-4 px-8 shadow opacity-75 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">Dashboard</button>
+                @else
+                <button onclick="window.location.href='{{ url('/dashboard') }}';" id="navAction"
+                class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full mt-4 lg:mt-0 py-4 px-8 shadow opacity-75 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">Dashboard</button>
+
+                @endif
                 @else
                 <button onclick="window.location.href='{{ route('login') }}';" id="navAction"
                     class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full mt-4 lg:mt-0 py-4 px-8 shadow opacity-75 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">Log

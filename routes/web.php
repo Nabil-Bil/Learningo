@@ -1,16 +1,17 @@
 <?php
 
-use App\Http\Controllers\AdminController;
-use App\Http\Controllers\Controller;
-use App\Http\Controllers\SalonController;
-use App\Http\Livewire\AdminRequests;
-use App\Http\Livewire\AdminSalons;
-use App\Http\Livewire\AdminUsers;
-use App\Http\Livewire\Post;
 use App\Models\Comment;
-use App\Models\Post as ModelsPost;
+use App\Http\Livewire\Post;
 use Illuminate\Http\Request;
+use App\Http\Livewire\AdminUsers;
+use App\Http\Livewire\AdminSalons;
+use App\Models\Post as ModelsPost;
+use App\Http\Controllers\Controller;
+use App\Http\Livewire\AdminRequests;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\SalonController;
 
 /*
 |--------------------------------------------------------------------------

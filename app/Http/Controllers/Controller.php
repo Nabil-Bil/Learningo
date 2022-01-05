@@ -31,6 +31,8 @@ class Controller extends BaseController
 
     public function dashboard()
     {
+        if(Auth::user()->role=='admin')
+            return redirect()->route('admin.dashboard');
         $salons=Auth::user()->salons;
         
         return view('dashboard',[
