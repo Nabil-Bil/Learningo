@@ -30,30 +30,30 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('users')->insert([
-            'first_name'=>'RADJAI',
-            'last_name'=>'Nabil',
-            'email'=>'n.radjai@outlook.com',
+            'first_name'=>'jhon',
+            'last_name'=> 'doe',
+            'email'=>'jhon_doe@outlook.com',
             'email_verified_at'=>now(),
-            'password'=>Hash::make('radjai2001'),
+            'password'=>Hash::make('jhon_doe'),
             'role'=>'enseignant',
             'created_at'=>now(),
             'updated_at'=>now(),
         ]);
 
         DB::table('users')->insert([
-            'first_name'=>'RADJAI',
-            'last_name'=>'Nabil',
-            'email'=>'n.radjai@outlook.fr',
+            'first_name'=> 'jhon',
+            'last_name'=> 'doe',
+            'email'=> 'jhon_doe@outlook.fr',
             'email_verified_at'=>now(),
-            'password'=>Hash::make('radjai2001'),
+            'password'=>Hash::make('jhon_doe'),
             'role'=>'etudiant',
             'created_at'=>now(),
             'updated_at'=>now(),
         ]);
-        // $salons=Salon::factory(4)->create();
-        // foreach($salons as $salon){
-        //     $salon->users()->attach(2);
-        // }
+        $salons=Salon::factory(4)->create();
+        foreach($salons as $salon){
+            $salon->users()->attach(2);
+        }
 
 
     }
