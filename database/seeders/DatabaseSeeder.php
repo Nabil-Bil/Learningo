@@ -50,9 +50,13 @@ class DatabaseSeeder extends Seeder
             'created_at'=>now(),
             'updated_at'=>now(),
         ]);
-        $salons=Salon::factory(4)->create();
-        foreach($salons as $salon){
-            $salon->users()->attach(2);
+        for($i=0;$i<10;$i++){
+           Salon::factory()->create(
+            [
+                'user_id'=>2,
+                'meeturl'=>'https://defaultmeeturl.com/'.$i
+            ]
+           );
         }
 
 

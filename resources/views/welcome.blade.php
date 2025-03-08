@@ -89,23 +89,23 @@
     </nav>
     <!--Hero-->
     <div class="pt-24" id='home'>
-        <div class="container px-3 mx-auto flex flex-wrap flex-col md:flex-row items-center">
-            <!--Left Col-->
-            <div class="flex flex-col w-full md:w-2/5 justify-center items-start text-center md:text-left">
-                <p class="uppercase tracking-loose w-full">Are you a student?</p>
-                <h1 class="my-4 text-5xl font-bold leading-tight">
-                    Main Hero Message to sell yourself!
-                </h1>
-                <p class="leading-normal text-2xl mb-8">
-                    Sub-hero message, not too long and not too short. Make it just right!
-                </p>
-            </div>
-            <!--Right Col-->
-            <div class="w-full md:w-3/5 py-6 text-center">
-                <img class="w-full md:w-4/5 z-50" src="{{ asset('img/undraw_researching_-22-gp.svg') }}" />
+            <div class="container px-3 mx-auto flex flex-wrap flex-col md:flex-row items-center">
+                <!--Left Col-->
+                <div class="flex flex-col w-full md:w-2/5 justify-center items-start text-center md:text-left">
+                    <p class="uppercase tracking-loose w-full">Empowering Students Through Knowledge</p>
+                    <h1 class="my-4 text-5xl font-bold leading-tight">
+                        Learningo - Your Gateway to Smart Learning
+                    </h1>
+                    <p class="leading-normal text-2xl mb-8">
+                        Join a vibrant community, engage with interactive courses, and take your learning experience to the next level.
+                    </p>
+                </div>
+                <!--Right Col-->
+                <div class="w-full md:w-3/5 py-6 text-center">
+                    <img class="w-full md:w-4/5 z-50" src="{{ asset('img/undraw_researching_-22-gp.svg') }}" />
+                </div>
             </div>
         </div>
-    </div>
     <div class="relative -mt-12 lg:-mt-24">
         <svg viewBox="0 0 1428 174" version="1.1" xmlns="http://www.w3.org/2000/svg"
             xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -131,25 +131,24 @@
     </div>
 
     <section class="bg-gray-100 py-8" id="about">
-        <div class="container max-w-5xl mx-auto m-8">
-            <h1 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
-                Title
-            </h1>
-            <div class="w-full mb-4">
-                <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
-            </div>
-            <div class="flex flex-wrap">
-                <div class="w-5/6 sm:w-1/2 p-6">
-                    <h3 class="text-3xl text-gray-800 font-bold leading-none mb-3">
-                        Lorem ipsum dolor sit amet
-                    </h3>
-                    <p class="text-gray-600 mb-8">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at ipsum eu nunc commodo
-                        posuere et sit amet ligula.
-                        <br />
-                        <br />
-                    </p>
+            <div class="container max-w-5xl mx-auto m-8">
+                <h1 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
+                    About Learningo
+                </h1>
+                <div class="w-full mb-4">
+                    <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
                 </div>
+                <div class="flex flex-wrap">
+                    <div class="w-5/6 sm:w-1/2 p-6">
+                        <h3 class="text-3xl text-gray-800 font-bold leading-none mb-3">
+                            Transforming Education for the Digital Age
+                        </h3>
+                        <p class="text-gray-600 mb-8">
+                            Learningo is designed to foster collaboration and enhance the learning experience through innovative virtual classrooms, resource sharing, and interactive discussions. Whether you're a student or an educator, our platform provides the tools you need to succeed in an ever-evolving digital world.
+                            <br />
+                            <br />
+                        </p>
+                    </div>
                 <div class="w-full sm:w-1/2 p-6">
 
                     <img src="{{ asset('img/undraw_online_ad_re_ol62.svg') }}" alt="second img" />
@@ -278,18 +277,21 @@
             </div>
             <div class="flex flex-wrap flex-col-reverse sm:flex-row">
                 <div class="w-full sm:w-1/2 p-6 mt-6">
-                    <img src="{{ asset('img/undraw_online_learning_re_qw08.svg') }}" alt="third img">
+                    <img src="{{ asset('img/undraw_online_learning_re_qw08.svg') }}" alt="Online Learning Illustration">
                 </div>
                 <div class="w-full sm:w-1/2 p-6 mt-6">
                     <div class="align-middle">
                         <h3 class="text-3xl text-gray-800 font-bold leading-none mb-3">
-                            Lorem ipsum dolor sit amet
+                            Engaging & Interactive Learning Experience
                         </h3>
                         <p class="text-gray-600 mb-8">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at ipsum eu nunc commodo
-                            posuere et sit amet ligula.
+                            Learningo transforms traditional education with dynamic virtual classrooms, seamless resource sharing, 
+                            and interactive discussions. Our platform ensures an engaging and collaborative learning journey 
+                            for students and teachers alike.
                             <br />
                             <br />
+                            📚 <strong>Access quality educational content anytime, anywhere.</strong> <br />
+                            🤝 <strong>Collaborate, discuss, and grow with a supportive community.</strong>
                         </p>
                     </div>
                 </div>
@@ -323,36 +325,19 @@
             </g>
         </g>
     </svg>
-    <section class="container mx-auto text-center py-6 mb-12">
-        <h1 class="w-full my-2 text-5xl font-bold leading-tight text-center text-white">
-            Call to Action
-        </h1>
-        <div class="w-full mb-4">
-            <div class="h-1 mx-auto bg-white w-1/6 opacity-25 my-0 py-0 rounded-t"></div>
-        </div>
-        <h3 class="my-4 text-3xl leading-tight">
-            Main Hero Message to sell yourself!
-        </h3>
-        <button
-            class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
-            Action!
-        </button>
-    </section>
 
     <div id="faq">
         <img src="{{ asset('img/black_pattern.png') }}" alt="black pattern background"
             class="absolute w-full h-64 md:h-96 object-center object-fit z-0" />
         <div class="relative flex flex-col items-center justify-center sm:px-0 px-6 z-20 pb-32">
             <div class="md:py-36 py-20">
-                <h1 role="heading" class="xl:text-6xl md:text-5xl text-xl font-bold leading-10 text-white">Frequently
-                    asked questions</h1>
+                <h1 role="heading" class="xl:text-6xl md:text-5xl text-xl font-bold leading-10 text-white">Frequently Asked Questions</h1>
             </div>
             <div class="lg:w-1/2 md:w-8/12 sm:w-9/12 w-full">
                 <div class="bg-white shadow rounded p-8">
                     <div class="flex items-center justify-between">
                         <div>
-                            <h2 class="text-base font-semibold leading-none text-gray-800">Why should I use your
-                                service?</h2>
+                            <h2 class="text-base font-semibold leading-none text-gray-800">Why should I use your service?</h2>
                         </div>
                         <button data-menu class="focus:outline-none cursor-pointer">
                             <img class="hidden" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/faq-2-svg1.svg"
@@ -363,38 +348,14 @@
                     </div>
                     <ul class="hidden">
                         <li>
-                            <p class="text-base leading-normal text-gray-600 mt-4 lg:w-96">If you want to choose Pro or
-                                Business plan the you can use all payments. You can pay from Paypal, Payoneer, Master
-                                Card, Debit Card.</p>
+                            <p class="text-base leading-normal text-gray-600 mt-4 lg:w-96">Learningo offers an interactive platform that allows teachers and students to collaborate efficiently through virtual classrooms and real-time meetings.</p>
                         </li>
                     </ul>
                 </div>
                 <div class="bg-white shadow rounded p-8 mt-8">
                     <div class="flex items-center justify-between">
                         <div>
-                            <h2 class="text-base font-semibold leading-none text-gray-800">What payment method I can
-                                use?</h2>
-                        </div>
-                        <button data-menu class="focus:outline-none  cursor-pointer">
-                            <img class="hidden" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/faq-2-svg1.svg"
-                                alt="dropdown">
-                            <img class="transform rotate-180"
-                                src="https://tuk-cdn.s3.amazonaws.com/can-uploader/faq-2-svg1.svg" alt="dropdown">
-                        </button>
-                    </div>
-                    <ul class="hidden">
-                        <li>
-                            <p class="text-base leading-normal text-gray-600 mt-4 lg:w-96">If you want to choose Pro or
-                                Business plan the you can use all payments. You can pay from Paypal, Payoneer, Master
-                                Card, Debit Card.</p>
-                        </li>
-                    </ul>
-                </div>
-                <div class="bg-white shadow rounded p-8 mt-8">
-                    <div class="flex items-center justify-between">
-                        <div>
-                            <h2 class="text-base font-semibold leading-none text-gray-800">Is your service safe to use?
-                            </h2>
+                            <h2 class="text-base font-semibold leading-none text-gray-800">Is your service safe to use?</h2>
                         </div>
                         <button data-menu class="focus:outline-none   cursor-pointer">
                             <img class="hidden" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/faq-2-svg1.svg"
@@ -405,16 +366,14 @@
                     </div>
                     <ul class="hidden">
                         <li>
-                            <p class="text-base leading-normal text-gray-600 mt-4 lg:w-96">If you want to choose Pro or
-                                Business plan the you can use all payments. You can pay from Paypal, Payoneer, Master
-                                Card, Debit Card.</p>
+                            <p class="text-base leading-normal text-gray-600 mt-4 lg:w-96">Yes, we implement strict security protocols to protect your personal information and ensure a safe learning environment.</p>
                         </li>
                     </ul>
                 </div>
                 <div class="bg-white shadow rounded p-8 mt-8">
                     <div class="flex items-center justify-between">
                         <div>
-                            <h2 class="text-base font-semibold leading-none text-gray-800">How to recover password?</h2>
+                            <h2 class="text-base font-semibold leading-none text-gray-800">How can I recover my password?</h2>
                         </div>
                         <button data-menu class="focus:outline-none cursor-pointer">
                             <img class="hidden" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/faq-2-svg1.svg"
@@ -425,20 +384,17 @@
                     </div>
                     <ul class="hidden">
                         <li>
-                            <p class="text-base leading-normal text-gray-600 mt-4 lg:w-96">If you want to choose Pro or
-                                Business plan the you can use all payments. You can pay from Paypal, Payoneer, Master
-                                Card, Debit Card.</p>
+                            <p class="text-base leading-normal text-gray-600 mt-4 lg:w-96">If you've forgotten your password, click "Forgot Password" during login to receive a reset link via email.</p>
                         </li>
                     </ul>
                 </div>
             </div>
             <div class="mt-9 md:mt-11 lg:mt-16" id="contact">
                 <div class="text-center">
-                    <h1 class="text-3xl font-medium leading-loose text-gray-800">Didn’t find an answer?</h1>
-                    <p class="mx-4 md:mx-0 mb-4 text-base leading-none text-gray-600 mt-4">Our team is just an email
-                        away and ready to answer your questions</p>
+                    <h1 class="text-3xl font-medium leading-loose text-gray-800">Didn't find an answer?</h1>
+                    <p class="mx-4 md:mx-0 mb-4 text-base leading-none text-gray-600 mt-4">Our team is just an email away and ready to answer your questions</p>
                 </div>
-                <div role="list" aria-label="Our Team mates" class="flex flex-wrap items-center justify-around mt-2 ">
+                <div role="list" aria-label="Our team members" class="flex flex-wrap items-center justify-around mt-2 ">
                     <div role="listitem" class="flex flex-col items-center justify-center m-6 focus:outline-none">
                         <img src="{{ asset('img/ALLOUI AbdelRaouf.jpg') }}" alt="Display avatar of ALLOUI Abdelraouf"
                             role="img" class="w-12 rounded-full">
@@ -454,8 +410,7 @@
                 </div>
                 <div class="flex justify-center items-center">
                     <a href="{{ route('contact') }}"
-                        class="mt-4 md:mt-6 py-3 px-6 bg-black hover:bg-indigo-700 rounded text-white text-center font-medium text-base focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-800">Contact
-                        us</a>
+                        class="mt-4 md:mt-6 py-3 px-6 bg-black hover:bg-indigo-700 rounded text-white text-center font-medium text-base focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-800">Contact us</a>
                 </div>
             </div>
 
